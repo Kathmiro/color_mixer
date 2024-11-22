@@ -2,7 +2,8 @@ import tkinter as tk
 from tkinter import simpledialog, messagebox
 
 def color_converter(color):
-    """with help of this function, we convert the color from HEX or RGB to RGB-format"""
+    """with help of this function, we convert the color from HEX or RGB to RGB-format, 
+    this formula was taken from the forum: https://stackoverflow.com/questions/29643352/converting-hex-to-rgb-value-in-python """
     if color.startswith('#'):  # if HEX
         return tuple(int(color.lstrip('#')[i:i+2], 16) for i in (0, 2, 4))
     else:  # if RGB
@@ -13,7 +14,8 @@ def mix_colors(rgb1, rgb2):
     return tuple((c1 + c2) // 2 for c1, c2 in zip(rgb1, rgb2))
 
 def rgb_to_hex(rgb):
-    """convert RGB into HEX"""
+    """convert RGB into HEX, 
+    this formula was taken fron the site https://docs.bokeh.org/en/3.5.0/_modules/bokeh/colors/color.html"""
     return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
 
 def main():
